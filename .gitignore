@@ -388,3 +388,5 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/flutter,dart,xcode,androidstudio,gradle,swift,objective-c,kotlin,java
+
+**/.DS_Store
