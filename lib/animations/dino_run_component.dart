@@ -6,7 +6,6 @@ class DinoRunComponent extends SpriteAnimationComponent {
   DinoRunComponent()
       : super(
           size: Vector2.all(80),
-          anchor: Anchor.center,
         );
 
   @override
@@ -28,7 +27,9 @@ class DinoRunComponent extends SpriteAnimationComponent {
 
   @override
   void onGameResize(Vector2 size) {
-    position = size / 2;
     super.onGameResize(size);
+
+    x = width;
+    y = size.y - 32 - height;
   }
 }

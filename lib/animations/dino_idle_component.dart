@@ -1,7 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
-import 'package:flutter/services.dart';
 
 class DinoIdleComponent extends SpriteAnimationComponent with KeyboardHandler {
   DinoIdleComponent()
@@ -9,18 +8,6 @@ class DinoIdleComponent extends SpriteAnimationComponent with KeyboardHandler {
           size: Vector2.all(80),
           anchor: Anchor.bottomLeft,
         );
-
-  @override
-  bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
-    final isKeyDown = event is RawKeyDownEvent;
-
-    final isRight = keysPressed.contains(LogicalKeyboardKey.arrowDown);
-
-    if (isRight && isKeyDown) {
-      return true;
-    }
-    return false;
-  }
 
   @override
   Future<void>? onLoad() async {

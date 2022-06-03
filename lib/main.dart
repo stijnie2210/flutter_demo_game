@@ -5,6 +5,7 @@ import 'package:flutter_game_demo/game.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Flame.device.setLandscape();
   await Flame.device.fullScreen();
   final game = FlutterDemoGame();
   runApp(GameWidget(game: game));
