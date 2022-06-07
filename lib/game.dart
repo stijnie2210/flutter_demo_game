@@ -5,9 +5,10 @@ import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_game_demo/animations/blue_bird_component.dart';
 import 'package:flutter_game_demo/animations/dino_group_component.dart';
+import 'package:flutter_game_demo/components/health_bar_component.dart';
 import 'package:flutter_game_demo/components/parallax_component.dart';
 
-class FlutterDemoGame extends FlameGame with TapDetector {
+class FlutterDemoGame extends FlameGame with TapDetector, HasCollisionDetection {
   static final fpsTextConfig = TextPaint(style: const TextStyle(color: Colors.white));
   final parallaxComponent = BackgroundParallaxComponent();
   final groupAnimationComponent = DinoGroupComponent();
@@ -19,6 +20,8 @@ class FlutterDemoGame extends FlameGame with TapDetector {
     await add(groupAnimationComponent);
     await add(BlueBirdComponent());
     await add(fpsComponent);
+    await add(HealthBarComponent(maxHealth: 4));
+    children.register<HealthBarComponent>();
   }
 
   @override
@@ -31,12 +34,6 @@ class FlutterDemoGame extends FlameGame with TapDetector {
   @override
   bool onTapDown(TapDownInfo info) {
     groupAnimationComponent.jump();
-    return true;
-  }
-
-  @override
-  bool onTapUp(TapUpInfo info) {
-    // groupAnimationComponent.stop();
     return true;
   }
 }

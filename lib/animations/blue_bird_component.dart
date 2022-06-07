@@ -1,12 +1,13 @@
 import 'dart:math';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter_game_demo/config/constants.dart';
 import 'package:flutter_game_demo/game.dart';
 
-class BlueBirdComponent extends SpriteAnimationComponent with HasGameRef<FlutterDemoGame> {
+class BlueBirdComponent extends SpriteAnimationComponent with HasGameRef<FlutterDemoGame>, CollisionCallbacks {
   double speedX = 200;
 
   BlueBirdComponent()
@@ -28,6 +29,7 @@ class BlueBirdComponent extends SpriteAnimationComponent with HasGameRef<Flutter
       from: 0,
       to: 9,
     );
+    add(CircleHitbox());
   }
 
   @override
